@@ -8,7 +8,7 @@ public class spill {
     public String premiebunketype;
     public spiller spiller1;
     public spiller spiller2;
-    public ArrayList<String> korttyper = new ArrayList<>(Arrays.asList("Hjertere","Rutere","Kløvere","Spar"));
+    //public ArrayList<String> korttyper = new ArrayList<>(Arrays.asList("Hjertere","Rutere","Kløvere","Spar"));
 
     /** Første metode som starte lagingen av spiller */
     public spill() {
@@ -30,7 +30,7 @@ public class spill {
 
         int randomtall1 = (int) Math.floor(Math.random() * 3) + 0;
 
-        premiebunketype=korttyper.get(randomtall1);
+        premiebunketype=kortstokk.korttyper.get(randomtall1);
 
         /** Tildeler premiebunken */
         premiebunke=kortstokk.bunke1;
@@ -39,25 +39,25 @@ public class spill {
         Collections.shuffle(premiebunke);
 
         /** Fjerner korttypen fra kortstokken*/
-        korttyper.remove(premiebunketype);
+        kortstokk.korttyper.remove(premiebunketype);
     }
 
     public void finnSpiller1Bunke(){
         /**Trekker hvilken bunke som skal være til spiller1 basert på index i ArrayListen (korstokken) med korttyper*/
         int randomtall2 = (int) Math.floor(Math.random() * 2) + 0;
-        spiller1.korttype=korttyper.get(randomtall2);
+        spiller1.korttype=kortstokk.korttyper.get(randomtall2);
 
         /** Fjerner bunken fra kortstokken*/
-        korttyper.remove(spiller1.korttype);
+        kortstokk.korttyper.remove(spiller1.korttype);
         spiller1.kort=kortstokk.bunke2;
     }
     public void finnSpiller2Bunke(){
         /** Trekker hvilken bunke som skal være til spiller2 basert på index i ArrayListen (korstokken) med korttyper*/
         int randomtall3 = (int) Math.floor(Math.random() * 1) + 0;
-        spiller2.korttype=korttyper.get(randomtall3);
+        spiller2.korttype=kortstokk.korttyper.get(randomtall3);
 
         /** Fjerner bunken fra stokken*/
-        korttyper.remove(spiller2.korttype);
+        kortstokk.korttyper.remove(spiller2.korttype);
         spiller2.kort=kortstokk.bunke3;
 
     }
@@ -122,7 +122,7 @@ public class spill {
         else if(spiller1.getPoeng()==spiller2.getPoeng()){
             vinner="Uavgjort \uD83D\uDC4C";
         }
-        System.out.print("Spiller 1 fikk "+spiller1.getPoeng()+" poeng\"Spiller 2 fikk "+spiller2.getPoeng()+"poeng\n  "+vinner);
+        System.out.print("----------------------------\n Spiller 1 fikk "+spiller1.getPoeng()+" poeng\n Spiller 2 fikk "+spiller2.getPoeng()+" poeng\n"+vinner);
     }
     /** Metode som skriver ut resultatet etter hver runde*/
     public void skrivRundeResultater(int teller,int premiekort, int spiller1verdi, int spiller2verdi, String vinner){
@@ -132,7 +132,7 @@ public class spill {
     /** Skriver ut fordelingen av bunkene*/
     public void skrivSpillInfo(){
         System.out.println("Premiebunken er av typen "+premiebunketype+"\nSpiller 1 fikk bunken med "+spiller1.korttype+
-                "\nSpiller 2 fikk bunken med "+spiller2.korttype+"\nVi legger bort bunken med "+korttyper.get(0)+" for denne gang\n");
+                "\nSpiller 2 fikk bunken med "+spiller2.korttype+"\nVi legger bort bunken med "+kortstokk.korttyper.get(0)+" for denne gang\n");
     }
     public int spiller1strategi(int premiekort){
         /** Spiller 1 skal alltid velge samme verdi som premiekortet. Returnerer samme verdi*/

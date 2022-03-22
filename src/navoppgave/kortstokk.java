@@ -8,6 +8,7 @@ public class kortstokk {
     public ArrayList<Integer> bunke2;
     public ArrayList<Integer> bunke3;
     public ArrayList<Integer> bunke4;
+    public ArrayList<String> korttyper = new ArrayList<>(Arrays.asList("Hjertere","Rutere","Kløvere","Spar"));
 
     //BØR LAGE GETTER OG SETTERE TIL SLUTT
 
