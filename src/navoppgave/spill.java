@@ -8,7 +8,6 @@ public class spill {
     private String premiebunketype;
     private spiller spiller1;
     private spiller spiller2;
-    //public ArrayList<String> korttyper = new ArrayList<>(Arrays.asList("Hjertere","Rutere","Kløvere","Spar"));
 
     /** Første metode som starte lagingen av spiller */
     public spill() {
@@ -74,17 +73,17 @@ public class spill {
             String vinner="";
             /** Vinneren er den som har høyest verdi på kortet de spiller med.*/
             if(spiller1verdi>spiller2verdi){
-                vinner="Spiller 1 vant denne runden \uD83D\uDE0A";
+                vinner="Spiller 1 vant denne runden";
                 registrerPoeng(spiller1, 1);
             }
             else if(spiller1verdi<spiller2verdi){
-                vinner="Spiller 2 vant denne runden \uD83D\uDE0E";
+                vinner="Spiller 2 vant denne runden";
                 registrerPoeng(spiller2, 1);
             }
             else if(spiller1verdi==spiller2verdi){
                 registrerPoeng(spiller1, 1);
                 registrerPoeng(spiller2, 1);
-                vinner="Uavgjort \uD83D\uDC4C";
+                vinner="Uavgjort";
             }
 
             /** Når hver runde er spilt blir resultatet skrevet ut på skjermen*/
@@ -94,7 +93,7 @@ public class spill {
             /** Forsinkelse for å få litt spenning*/
                 try
                 {
-                    Thread.sleep(100);
+                    Thread.sleep(1000);
                 }
                 catch(InterruptedException ex)
                 {
@@ -114,20 +113,20 @@ public class spill {
     public void skrivSluttResultat(){
         String vinner="";
         if(spiller1.getPoeng()>spiller2.getPoeng()){
-            vinner="Spiller 1 vant \uD83D\uDE0A";
+            vinner="Spiller 1 vant";
         }
         else if(spiller1.getPoeng()<spiller2.getPoeng()){
-            vinner="Spiller 2 vant \uD83D\uDE0E";
+            vinner="Spiller 2 vant";
         }
         else if(spiller1.getPoeng()==spiller2.getPoeng()){
-            vinner="Uavgjort \uD83D\uDC4C";
+            vinner="Uavgjort";
         }
-        System.out.print("----------------------------\n Spiller 1 fikk "+spiller1.getPoeng()+" poeng\n Spiller 2 fikk "+spiller2.getPoeng()+" poeng\n"+vinner);
+        System.out.print("----------------------------\nSpiller 1 fikk "+spiller1.getPoeng()+" poeng\nSpiller 2 fikk "+spiller2.getPoeng()+" poeng\n"+vinner);
     }
     /** Metode som skriver ut resultatet etter hver runde*/
     public void skrivRundeResultater(int teller,int premiekort, int spiller1verdi, int spiller2verdi, String vinner){
         System.out.println("----------------------------\n"+teller+" Runde: Premiekort har verdi "+premiekort+
-                " ** Spiller 1 kort: "+spiller1verdi+" Spiller 2 kort: "+spiller2verdi+ "\n"+vinner+"");
+                " ** \nSpiller 1 kort: "+spiller1verdi+"\nSpiller 2 kort: "+spiller2verdi+ "\n"+vinner+"");
     }
     /** Skriver ut fordelingen av bunkene*/
     public void skrivSpillInfo(){
