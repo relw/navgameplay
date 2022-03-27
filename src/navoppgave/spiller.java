@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class spiller {
     private String navn;
     public ArrayList<Integer> kort;
-    public String korttype;
+    private String korttype;
     private int poeng=0;
 
     public spiller(String navn) {
